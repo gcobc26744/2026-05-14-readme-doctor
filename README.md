@@ -49,7 +49,11 @@ Append missing headings to a README (safe: only adds headings that are missing):
 readme-doctor ..\\2026-05-08-utf8-scout\\README.md --fix
 ```
 
-## Next steps
-- [ ] Add a `--strict` mode (exit non-zero if missing)
-- [ ] Support custom section sets via a JSON config
+Strict mode (CI-friendly): exit code `2` if anything is missing:
 
+```bash
+readme-doctor ..\\2026-05-08-utf8-scout\\README.md --strict
+```
+
+## Next steps
+- [ ] Support custom section sets via a JSON config

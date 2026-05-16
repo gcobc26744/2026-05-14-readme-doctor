@@ -122,6 +122,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--template", action="store_true", help="Print a README template to stdout.")
     parser.add_argument("--fix", action="store_true", help="Append missing section headings to the README.")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit with code 2 if any required section is missing (CI-friendly).",
+    )
     return parser
 
 
@@ -137,6 +142,8 @@ def main(argv: list[str] | None = None) -> int:
     result = check_readme(readme_path)
 
     exit_code = _print_report(result)
+    if args.strict and exit_code == 1:
+        exit_code = 2
     if args.fix and exit_code in (1, 0) and result.missing_sections and readme_path.exists():
         _apply_fix(readme_path, result.missing_sections)
         print("Applied: appended missing headings.")
@@ -147,4 +154,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
