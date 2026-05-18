@@ -4,12 +4,12 @@
 `readme_doctor.py` is a tiny CLI that checks a `README.md` for a few beginner-friendly sections (so your repos look consistent and are easy to run).
 
 ## Why it exists
-When doing daily side projects, it’s easy to forget to document:
-- the “one command” to run
+When doing daily side projects, it's easy to forget to document:
+- the "one command" to run
 - a minimal example
 - next steps / TODOs
 
-This tool quickly tells you what’s missing and can optionally append missing headings.
+This tool quickly tells you what's missing and can optionally append missing headings.
 
 ## How to run
 Requirements: Python 3.10+
@@ -29,7 +29,7 @@ python -m pip install -e .
 readme-doctor ..\\..\\README.md
 ```
 
-## Examples
+## Example
 
 Check a project README:
 
